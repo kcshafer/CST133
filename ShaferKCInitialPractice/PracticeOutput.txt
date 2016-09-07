@@ -1,0 +1,73 @@
+---------------------------------------------------------------------------
+SUNY Broome Community College
+KC Shafer
+CST 133 - Practice Exercise
+---------------------------------------------------------------------------
+Math Operation Selection
+1. Addition
+2. Subtraction
+3. Multiplication
+---------------------------------------------------------------------------
+Enter math operation choice (1, 2 or 3) : 1
+Enter the two operands to add seperated by a space: 146 8
+---------------------------------------------------------------------------
+For the math operation: add
+Operand1: 146.00        Operand2: 8.00
+Result is       154.00
+---------------------------------------------------------------------------
+Press any key to continue . . .
+
+---------------------------------------------------------------------------
+SUNY Broome Community College
+KC Shafer
+CST 133 - Practice Exercise
+---------------------------------------------------------------------------
+Math Operation Selection
+1. Addition
+2. Subtraction
+3. Multiplication
+---------------------------------------------------------------------------
+Enter math operation choice (1, 2 or 3) : 2
+Enter the two operands to subtraction seperated by a space: 25 15
+---------------------------------------------------------------------------
+For the math operation: subtraction
+Operand1: 25.00         Operand2: 15.00
+Result is        10.00
+---------------------------------------------------------------------------
+Press any key to continue . . .
+
+---------------------------------------------------------------------------
+SUNY Broome Community College
+KC Shafer
+CST 133 - Practice Exercise
+---------------------------------------------------------------------------
+Math Operation Selection
+1. Addition
+2. Subtraction
+3. Multiplication
+---------------------------------------------------------------------------
+Enter math operation choice (1, 2 or 3) : 3
+Enter the two operands to multiply seperated by a space: 9 8
+---------------------------------------------------------------------------
+For the math operation: multiply
+Operand1: 9.00          Operand2: 8.00
+Result is        72.00
+---------------------------------------------------------------------------
+Press any key to continue . . .
+
+---------------------------------------------------------------------------
+SUNY Broome Community College
+KC Shafer
+CST 133 - Practice Exercise
+---------------------------------------------------------------------------
+Math Operation Selection
+1. Addition
+2. Subtraction
+3. Multiplication
+---------------------------------------------------------------------------
+Enter math operation choice (1, 2 or 3) : 4
+---------------------------------------------------------------------------
+Invalid operation choice entered, no calculations performed
+Please run the program again and select 1,2 or 3
+---------------------------------------------------------------------------
+Press any key to continue . . .
