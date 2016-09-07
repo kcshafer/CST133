@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------- 
+                       SUNY Broome Community College
+                                 KC Shafer
+                           CST 133 - Exercise 1
+-------------------------------------------------------------------------- 
+-------------------------------------------------------------------------- 
+Results from Task 1a with a while loop
+First Number:         1     Second Number:         4
+-------------------------------------------------------------------------- 
+Results from Task 1a with a do while loop
+First Number:         1     Second Number:         4
