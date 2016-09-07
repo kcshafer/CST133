@@ -41,6 +41,10 @@ int main(void)
 	int firstNumber;
 	int secondNumber;
 
+	//task 1b variables
+	int index;
+	int counter;
+
 	//start heading to console
 	cout << setfill('-') << setw(DIVIDER_WIDTH) << ' ' << setfill(' ') << endl;
 
@@ -132,6 +136,35 @@ int main(void)
 
 	cout << "Integer values were successfully entered - processing continues..." << endl;
 
+	//end solution for task 1a
+
+	//solution for task 1b
+	taskTitle = "Task 1b - for loop";
+	stringLength = (int)taskTitle.length();
+	cout << setfill('-') << setw(DIVIDER_WIDTH) << ' ' << setfill(' ') << endl;
+	cout << setfill(' ') << setw((stringLength + DIVIDER_WIDTH) / 2) << ' ' << setfill(' ') << endl;
+
+	counter = 1;
+	for (index = firstNumber; index < secondNumber; index++)
+	{
+		//check if number is odd
+		if (index % 2 == 1)
+		{
+			cout << index << " ";
+
+			//increment counter only if it's odd
+			counter++;
+		}
+
+		//check if we have 5 numbers and if we do, print that line out
+		if (counter == 5)
+		{
+			counter = 1;
+			cout << endl;
+		}
+	}
+
+	//end solution for task 1b
 
 
 

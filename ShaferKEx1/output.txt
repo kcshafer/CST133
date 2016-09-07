@@ -5,7 +5,7 @@
 -------------------------------------------------------------------------- 
 -------------------------------------------------------------------------- 
 Results from Task 1a with a while loop
-First Number:         1     Second Number:         4
+First Number:         10     Second Number:         40
 -------------------------------------------------------------------------- 
 Results from Task 1a with a do while loop
-First Number:         1     Second Number:         4
+First Number:         10     Second Number:         40
