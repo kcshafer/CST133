@@ -1,0 +1,18 @@
+--------------------------------------------------------------------------
+                       SUNY Broome Community College
+                                 KC Shafer
+                           CST 133 - Exercise 1
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+
+Please input two integers where the first integer is less than the second:
+10 40
+Integer values were successfully entered - processesing continues...
+--------------------------------------------------------------------------
+
+Please input two integers where the first integer is less than the second:
+10 40
+Integer values were successfully entered - processing continues...
+--------------------------------------------------------------------------
+
+Press any key to continue . . .
