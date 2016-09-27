@@ -36,6 +36,8 @@ using namespace std;
 
 const int DIVIDER_WIDTH = 75;
 
+void writeSequenceCalculationBlock(int sequenceValue, int filePosition, ofstream &outputFile);
+
 int main()
 {	
 	//initialize input file
@@ -49,16 +51,8 @@ int main()
 	//initialize sequence number
 	int sequenceValue;
 
-	//initialize largest value and largest value position
-	int largestValue;
-	int largestPosition;
-
-	//initialize calculated value - will be used in the inner while loop to hold the calculations done with the sequenceValue
-	int calculatedValue;
-
-	//initialize outer and inner loop counters
+	//initialize outer counter
 	int outerCounter;
-	int innerCounter;
 
 	//initialize the outerCounter to 0
 	outerCounter = 1;
@@ -66,79 +60,88 @@ int main()
 	//prime the loop
 	inputFile >> sequenceValue;
 
-	//output the first value to the output filec	
-	outputFile << outerCounter << ".    Start Value is: " << sequenceValue << endl;
-	outputFile << setfill('*') << setw(DIVIDER_WIDTH) << ' ' << setfill(' ') << endl;
+	writeSequenceCalculationBlock(sequenceValue, outerCounter, outputFile);
 
 	//outer loop through the numbers in the inoutFile
 	while (!inputFile.eof())
 	{
-		//set sequenceValue to calculated value - used in the inner loop doing calculations
-		calculatedValue = sequenceValue;
-
-		//set largestValue to sequenceValue and largestPosition to 0
-		largestValue = sequenceValue;
-		largestPosition = 0;
-
-		//initialize innerCounter to 1, accounting for the initial sequence value we are writing to the output file
-		innerCounter = 1;
-
-		//write the initial sequence value to the file
-		outputFile << setw(10) << calculatedValue;
-
-		//inner loop while the calculatedValue is not 1
-		while (calculatedValue != 1)
-		{
-			//increment the inner counter
-			innerCounter++;
-
-			//if the calculatedValue is even divide by 2
-			if (calculatedValue % 2 == 0) 
-			{
-				calculatedValue = calculatedValue / 2;
-			}
-			//if the calculated value is odd multiply by 3 and add 1
-			else if (calculatedValue % 2 == 1) 
-			{
-				calculatedValue = calculatedValue * 3 + 1;
-			}
-
-			//compare calculatedValue to largestValue to see if it is the new largestValue
-			if (calculatedValue > largestValue) {
-				largestValue = calculatedValue;
-				largestPosition = innerCounter;
-			}
-
-			//output the value to file and set the width between the numbers as 10
-			outputFile << setw(10) << calculatedValue;
-			
-			//if the counter is at the tenth item or calculatedValue is 1 meaning it is the last number, so we don't leave a line unended
-			if (innerCounter  % 10 == 0 || calculatedValue == 1)
-			{
-				//end the line
-				outputFile << endl;
-			}
-		}
-
-		//increment the outerCounter
-		outerCounter++;
-		//retrieve the next sequenceValue
 		inputFile >> sequenceValue;
-
-		//output a newline between the calculated values and the largest read out
-		outputFile << endl;
-
-		//write the largest value & position and the bottom divider line
-		outputFile << "The largest value in the sequence is:" << setw(20) << largestValue << endl;
-		outputFile << "The position in the sequence of the largest value is:" << setw(4) << largestPosition << endl;
-		outputFile << setfill('*') << setw(DIVIDER_WIDTH) << ' ' << setfill(' ') << endl;
-
-		//write start value to outputFile
-		outputFile << outerCounter << ".    Start Value is: " << sequenceValue << endl;
-		outputFile << setfill('*') << setw(DIVIDER_WIDTH) << ' ' << setfill(' ') << endl;
+		outerCounter++;
+		writeSequenceCalculationBlock(sequenceValue, outerCounter, outputFile);
 	}
 
 	//close the input and output files
 	inputFile.close();
 	outputFile.close();
+}
+
+void writeSequenceCalculationBlock(int sequenceValue, int filePosition, ofstream &outputFile)
+{
+	//function variable to hold the calculations value for each iteration of the loop
+	int calculatedValue;
+
+	//variables to hold the largest value and position in the calculations
+	int largestPosition;
+	int largestValue;
+
+	//variable to store the count of this loop which is the inner loop
+	int innerCounter;
+
+	//write start value to outputFile
+	outputFile << filePosition << ".    Start Value is: " << sequenceValue << endl;
+	outputFile << setfill('*') << setw(DIVIDER_WIDTH) << ' ' << setfill(' ') << endl;
+	//set sequenceValue to calculated value - used in the inner loop doing calculations
+	calculatedValue = sequenceValue;
+
+	//set largestValue to sequenceValue and largestPosition to 0
+	largestValue = sequenceValue;
+	largestPosition = 0;
+
+	//initialize innerCounter to 1, accounting for the initial sequence value we are writing to the output file
+	innerCounter = 1;
+
+	//write the initial sequence value to the file
+	outputFile << setw(10) << calculatedValue;
+	cout << "Calculated Value" << calculatedValue << endl;
+	//inner loop while the calculatedValue is not 1
+	while (calculatedValue != 1)
+	{
+		//increment the inner counter
+		innerCounter++;
+
+		//if the calculatedValue is even divide by 2
+		if (calculatedValue % 2 == 0)
+		{
+			calculatedValue = calculatedValue / 2;
+		}
+		//if the calculated value is odd multiply by 3 and add 1
+		else if (calculatedValue % 2 == 1)
+		{
+			calculatedValue = calculatedValue * 3 + 1;
+		}
+
+		//compare calculatedValue to largestValue to see if it is the new largestValue
+		if (calculatedValue > largestValue) {
+			largestValue = calculatedValue;
+			largestPosition = innerCounter;
+		}
+
+		//output the value to file and set the width between the numbers as 10
+		outputFile << setw(10) << calculatedValue;
+
+		//if the counter is at the tenth item or calculatedValue is 1 meaning it is the last number, so we don't leave a line unended
+		if (innerCounter % 10 == 0 || calculatedValue == 1)
+		{
+			//end the line
+			outputFile << endl;
+		}
+	}
+
+	//output a newline between the calculated values and the largest read out
+	outputFile << endl;
+
+	//write the largest value & position and the bottom divider line
+	outputFile << "The largest value in the sequence is:" << setw(20) << largestValue << endl;
+	outputFile << "The position in the sequence of the largest value is:" << setw(4) << largestPosition << endl;
+	outputFile << setfill('*') << setw(DIVIDER_WIDTH) << ' ' << setfill(' ') << endl;
 }
