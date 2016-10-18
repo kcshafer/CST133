@@ -123,18 +123,18 @@
 //Documentation Block
 //Exercise 3
 //Program Flow:
-//  
-//  
-// 
-//
-//  
-//  
-//  
-//  
-//  
-//  
-//
-//  
+// Output course heading 
+//  Prompt user for four integers (quiz grades)
+//	Assign four integers into variables from input
+//	calculate the average of four quiz grades
+//  assign average to double variable
+//  calculate the highest and lowest quiz grades
+//  assign lowest and highest calculated values to int variables
+//  calculate count of grades above average
+//		examine each grade, comparing to average variable 
+//		determine if grade is greater than average
+//		if greater than average increment counter
+//  output grades and calculates values to screen
 //  
 //  
 //  
@@ -149,22 +149,39 @@
 
 using namespace std;
 
+// void/value
 void outputDivider(int numberOfSymbols, char symbol);
+
+// void/void
 void outputCourseHeading();
+
+// void/void
 void outputResultsHeading();
+
+// void/ value
 void outputQuizResults(int grade1, int grade2, int grade3, int grade4, double average, int highest, int lowest, int aboveAvgCount);
+
+// void / reference
 void getGrades(int& grade1, int &grade2, int& grade3, int& grade4);
+
+// void / reference
 void getHighestAndLowest(int& grade1, int& grade2, int& grade3, int& grade4, int& lowest, int& highest);
+
+//void / value
 int countGradesAboveAverage(int grade1, int grade2, int grade3, int grade4, int average);
+
+//void / value
 double getAverage(int grade1, int grade2, int grade3, int grade4);
 
 const string NAME = "KC Shafer";
 const string TITLE = "Fall 2016 Quiz Grades";
+const string COLLEGE = "SUNY Broome Community College";
+const string ASSIGNMENT = "CST 133 - Exercise 3";
 
 int main()
 {
 	//set cout precision
-	cout.precision(4);
+	cout.precision(3);
 
 	//variables for holding the quiz grades
 	int grade1;
@@ -206,7 +223,10 @@ int main()
 	return 0;
 }
 
-//TODO: look at at documentation guide for how functions need to be commented
+//-------------------------------------------------------------------
+//outputDivider - prints on the screen the symbol,
+// the number of times specified by numberOfSymbols
+//-------------------------------------------------------------------
 void outputDivider(int numberOfSymbols, char symbol)
 {
 	cout << setfill(symbol) << setw(numberOfSymbols + 1) << ' ' << setfill(' ') << endl;
@@ -214,21 +234,33 @@ void outputDivider(int numberOfSymbols, char symbol)
 
 }
 
+//-------------------------------------------------------------------
+//outputCourseHeading - prints the standard course heading to 
+// the screen
+//-------------------------------------------------------------------
 void outputCourseHeading()
 {
-	cout << "SUNY Broome Community College" << endl;
-	cout << "KC Shafer" << endl;
-	cout << "CST 133 - Exercise 3" << endl;
+	cout << COLLEGE << endl;
+	cout << NAME << endl;
+	cout << ASSIGNMENT << endl;
 
 	outputDivider(75, '-');
 }
 
+//-------------------------------------------------------------------
+//getGrades - prompt user for four integer grades
+// and store them in four by reference variables
+//-------------------------------------------------------------------
 void getGrades(int& grade1, int &grade2, int& grade3, int& grade4)
 {
 	cout << "Enter four quiz grades: " << endl;
 	cin >> grade1 >> grade2 >> grade3 >> grade4;
 }
 
+//-------------------------------------------------------------------
+//getAverage - take in grades and calculate average
+// returning double 
+//-------------------------------------------------------------------
 double getAverage(int grade1, int grade2, int grade3, int grade4)
 {
 	//variable to hold the calculated average
@@ -240,6 +272,10 @@ double getAverage(int grade1, int grade2, int grade3, int grade4)
 	return average;
 }
 
+//-------------------------------------------------------------------
+//outputResultsHeading - outputs the programmer name 
+// and the title of the output to the screen
+//-------------------------------------------------------------------
 void outputResultsHeading()
 {
 	cout << NAME << endl;
@@ -248,6 +284,10 @@ void outputResultsHeading()
 	outputDivider(75,'-');
 }
 
+//-------------------------------------------------------------------
+//outputQuizResults - takes in quiz grades and calculated values 
+// and outputs them to the screen
+//-------------------------------------------------------------------
 void outputQuizResults(int grade1, int grade2, int grade3, int grade4, double average, int highest, int lowest, int aboveAvgCount)
 {
 	//output the result heading
@@ -271,6 +311,10 @@ void outputQuizResults(int grade1, int grade2, int grade3, int grade4, double av
 	cout << "Highest Grade: " << highest << endl;
 }
 
+//-------------------------------------------------------------------
+//getHighestAndLowest - takes in grades by reference and calculates
+//the highest and lowest grade, storing them in 2 reference variables
+//-------------------------------------------------------------------
 void getHighestAndLowest(int& grade1, int& grade2, int& grade3, int& grade4, int& lowest, int& highest)
 {
 	//start with grade1 as highest and lowest
@@ -314,6 +358,10 @@ void getHighestAndLowest(int& grade1, int& grade2, int& grade3, int& grade4, int
 	}
 }
 
+//-------------------------------------------------------------------
+//countGradesAboveAverage - takes in 4 quiz grades and average, counts
+// the number that are above the average, returning the integer count
+//-------------------------------------------------------------------
 int countGradesAboveAverage(int grade1, int grade2, int grade3, int grade4, int average)
 {
 	int averageCount;
