@@ -18,8 +18,10 @@
     <ClCompile Include="ShaferKEx3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="arrays.cpp">
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Output.txt">
       <Filter>Source Files</Filter>
-    </ClCompile>
+    </Text>
   </ItemGroup>
 </Project>

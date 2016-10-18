@@ -1,0 +1,59 @@
+SUNY Broome Community College
+KC Shafer
+CST 133 - Exercise 3
+---------------------------------------------------------------------------
+Enter four quiz grades:
+100 85 90 95
+---------------------------------------------------------------------------
+KC Shafer
+Fall 2016 Quiz Grades
+---------------------------------------------------------------------------
+Grade 1: 100
+Grade 2: 85
+Grade 3: 90
+Grade 4: 95
+Average: 92.500
+Number of grades above the average: 2
+Lowest Grade: 85
+Highest Grade: 100
+Press any key to continue . . .
+
+SUNY Broome Community College
+KC Shafer
+CST 133 - Exercise 3
+---------------------------------------------------------------------------
+Enter four quiz grades:
+45 80 65 66
+---------------------------------------------------------------------------
+KC Shafer
+Fall 2016 Quiz Grades
+---------------------------------------------------------------------------
+Grade 1: 45
+Grade 2: 80
+Grade 3: 65
+Grade 4: 66
+Average: 64.000
+Number of grades above the average: 3
+Lowest Grade: 45
+Highest Grade: 80
+Press any key to continue . . .
+
+SUNY Broome Community College
+KC Shafer
+CST 133 - Exercise 3
+---------------------------------------------------------------------------
+Enter four quiz grades:
+0 80 40 81
+---------------------------------------------------------------------------
+KC Shafer
+Fall 2016 Quiz Grades
+---------------------------------------------------------------------------
+Grade 1: 0
+Grade 2: 80
+Grade 3: 40
+Grade 4: 81
+Average: 50.250
+Number of grades above the average: 2
+Lowest Grade: 0
+Highest Grade: 81
+Press any key to continue . . .
