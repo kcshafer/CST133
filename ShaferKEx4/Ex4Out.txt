@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------- 
+                       SUNY Broome Community College
+                                 KC Shafer
+                           CST 133 - Exercise 4
+-------------------------------------------------------------------------- 
+gpaByGender.txt file successfully opened Processing Continues...
+-------------------------------------------------------------------------- 
+                   Gender                      GPA
