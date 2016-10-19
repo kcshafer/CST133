@@ -74,7 +74,7 @@ The position in the sequence of the largest value is: 114
          2         1
 
 The largest value in the sequence is:                2048
-The position in the sequence of the largest value is:   0
+The position in the sequence of the largest value is:   1
 ************************************************************************** 
 7.    Start Value is: 65535
 ************************************************************************** 
