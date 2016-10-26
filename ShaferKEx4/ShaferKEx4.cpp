@@ -105,6 +105,8 @@ void OutputDivider(ofstream& outputFile);
 void OutputCourseHeading(ofstream& outputFile);
 void OutputSuccessfulFileMessage(ofstream& outputFile);
 void OutputColumnHeading(ofstream& outputFile);
+void InitializeAccumulatorVariables(double& femaleGPAS, double& maleGPAS);
+void ProcessFile(ifstream& inputFile, double& femaleGPAS, double& maleGPAS);
 
 //constants
 const string COLLEGE = "SUNY Broome Community College";
@@ -120,6 +122,10 @@ int main()
 
 	//variable for messages
 	string msg;
+
+	//gpa accumulator variables
+	double femaleGPAS;
+	double maleGPAS;
 
 	//boolean variable for input file validity
 	bool validFile;
@@ -144,6 +150,12 @@ int main()
 
 		//output column headings to the output file
 		OutputColumnHeading(outputFile);
+
+		//initialize gpa accumulator variables
+		InitializeAccumulatorVariables(femaleGPAS, maleGPAS);
+
+		//process the file accumulating the gender gpas in passed accumulator variables
+		ProcessFile(inputFile, femaleGPAS, maleGPAS);
 	}
 
 	//close the files 
@@ -259,6 +271,55 @@ void OutputSuccessfulFileMessage(ofstream& outputFile)
 //-------------------------------------------------------------------
 void OutputColumnHeading(ofstream& outputFile)
 {
-	//TODO: this isn't quite formatted right, needs some work
 	outputFile << setfill(' ') << setw(75/3) << "Gender" << setw(75/3) << "GPA" << endl;
+}
+
+//-------------------------------------------------------------------
+// InitializeAccumulatorVariables - initialize the accumulator variables
+// passed by reference
+//-------------------------------------------------------------------
+void InitializeAccumulatorVariables(double& femaleGPAS, double& maleGPAS)
+{
+	femaleGPAS = 0;
+	maleGPAS = 0;
+}
+
+//-------------------------------------------------------------------
+// ProcessFile - process the file, checking if the line is male or fem
+// and accumulating the gpas in corresponding variable
+//-------------------------------------------------------------------
+void ProcessFile(ifstream& inputFile, double& femaleGPAS, double& maleGPAS)
+{
+	//variable to store the gender read from the file
+	string gender;
+	
+	//variable to hold standardized gender value
+	char standardizedGender;
+
+	//variable to store the gpa read from the file
+	double gpa;
+
+	//prime the loop
+	//inputFile >> gender >> gpa;
+
+	//cout << "GENDER: " << gender << endl;
+	//cout << "GPA: " << gpa << endl;
+
+	//read from file line by line, assigning the gender and gpa values in each line to variables
+	//will return false at the end of file, doesn't requiring priming => all executed in loop
+	while (inputFile >> gender >> gpa)
+	{
+		cout << "GENDER: " << gender << endl;
+		cout << "GPA: " << gpa << endl;
+
+		//check that the string is one character so we can cast it to char
+		cout << "STRING LEN: " << gender.length() << endl;
+		
+		//NOTE TO SELF: working on validating that the string length is 1 so that it can be cast into a char
+		// then upcased to test that it is an m or f, probably using a case statement.
+
+		//standardizedGender = toupper(gender);
+
+		//cout << "Standardized GENDER: " << standardizedGender << endl;
+	}
 }
