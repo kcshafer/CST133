@@ -95,7 +95,7 @@ void writeSequenceCalculationBlock(int sequenceValue, int filePosition, ofstream
 
 	//set largestValue to sequenceValue and largestPosition to 0
 	largestValue = sequenceValue;
-	largestPosition = 0;
+	largestPosition = 1;
 
 	//initialize innerCounter to 1, accounting for the initial sequence value we are writing to the output file
 	innerCounter = 1;
