@@ -5,38 +5,48 @@
 -------------------------------------------------------------------------- 
 gpaByGender.txt file successfully opened Processing Continues...
 -------------------------------------------------------------------------- 
-                   Gender                      GPA
-                   Female                 3.400000
-                   Female                 4.000000
-Male                        m                 3.560000
-Error in Gender *GPA Excluded                 3.800000
-                   Female                 2.300000
-                   Female                 3.950000
-Male                        M                 3.900000
-Male                        m                 4.000000
-Male                        m                 2.000000
-                   Female                 4.000000
-                   Female                 2.800000
-Male                        m                 3.700000
-Male                        m                 2.980000
-                   Female                 3.890000
-Male                        m                 4.000000
-                   Female                 3.900000
-Male                        M                 1.900000
-                   Female                 2.920000
-                   Female                 3.010000
-Male                        M                 2.900000
-                   Female                 1.500000
-                   Female                 2.670000
-Male                        m                 3.800000
-Male                        m                 3.350000
-                   Female                 2.900000
-                   Female                 3.700000
-                   Female                 4.000000
-Male                        M                 3.780000
-Male                        m                 4.000000
-                   Female                 3.980000
-                   Female                 2.670000
-                   Female                 0.900000
-Male                        M                 2.230000
-                   Female                 3.890000
+                        Gender                           GPA
+-------------------------------------------------------------------------- 
+                        Female                          3.40
+                        Female                          4.00
+                          Male                          3.56
+                          Male                          3.80
+                        Female                          2.30
+                        Female                          3.95
+                          Male                          3.90
+                          Male                          4.00
+                          Male                          2.00
+                        Female                          4.00
+                        Female                          2.80
+                          Male                          3.70
+                          Male                          2.98
+                        Female                          3.89
+                          Male                          4.00
+                        Female                          3.90
+                          Male                          1.90
+                        Female                          2.92
+                        Female                          3.01
+                          Male                          2.90
+                        Female                          1.50
+                        Female                          2.67
+                          Male                          3.80
+                          Male                          3.35
+                        Female                          2.90
+                        Female                          3.70
+                        Female                          4.00
+                          Male                          3.78
+                          Male                          4.00
+                        Female                          3.98
+                        Female                          2.67
+                        Female                          0.90
+                          Male                          2.23
+                        Female                          3.89
+-------------------------------------------------------------------------- 
+Total Female GPA      60.38
+Total Male GPA         49.9
+Female Count             19
+Male Count               15
+Error Count               0
+Average Female GPA    3.178
+Average Male GPA      3.327
+-------------------------------------------------------------------------- 

@@ -84,11 +84,30 @@
 //Documentation Block
 //Exercise 4
 //Program Flow
-//  
-//  
-//  
-//  
-//  
+//  Initialize variables
+//  Open input file
+//  Open output file
+//  if file exists and is not empty
+//		output standard course heading
+//		output successful file message
+//		output gender/gpa headings
+//		initialize the accumulator variables - gender/error counts and total gpas
+//		while file is not empty
+//			if gender from file is upper or lowercase f
+//				increment the female count
+//				add gpa to total gpa variable
+//				assign Female to gender
+//			if gender from file is upper or lowercase m
+//				increment the male count
+//				add gpa to total gpa variable
+//				assign male to standardized gender
+//			output standardized gender and gpa to file	
+//		Output totalGpas for both genders, counts for genders and errors
+//		if we have no femaleGpas or maleGPAS
+//			output Average cannotbe calculated for average
+//		else
+//			output average
+//	Close Files
 //-----------------------------------------------------------------------------
 
 #include <iostream>
@@ -105,8 +124,9 @@ void OutputDivider(ofstream& outputFile);
 void OutputCourseHeading(ofstream& outputFile);
 void OutputSuccessfulFileMessage(ofstream& outputFile);
 void OutputRow(ofstream& outputFile, string firstValue, string secondValue);
-void InitializeAccumulatorVariables(double& femaleGPAS, double& maleGPAS);
-void ProcessFile(ifstream& inputFile, ofstream& outputFile, double& femaleGPAS, double& maleGPAS);
+void InitializeAccumulatorVariables(double& femaleGPAS, double& maleGPAS, int& maleCount, int& femaleCount, int& errorCount);
+void ProcessFile(ifstream& inputFile, ofstream& outputFile, double& femaleGPAS, double& maleGPAS, int& maleCount, int& femaleCount, int& errorCount);
+void OutputCalculations(ofstream& outputFile, double& femaleGPAS, double& maleGPAS, int& maleCount, int& femaleCount, int& errorCount);
 
 //constants
 const string COLLEGE = "SUNY Broome Community College";
@@ -123,12 +143,23 @@ int main()
 	//variable for messages
 	string msg;
 
-	//gpa accumulator variables
-	double femaleGPAS;
-	double maleGPAS;
-
 	//boolean variable for input file validity
 	bool validFile;
+
+	//accumulator variables
+
+	//variables to store total gpas for each gender
+	double maleGPAS;
+	double femaleGPAS;
+
+	//variables to hold count for each gender and for errors
+	int maleCount;
+	int femaleCount;
+	int errorCount;
+
+	//variable to store the averages for each gender
+	double maleAverage;
+	double femaleAverage;
 
 	//get input file
 	inputFile = OpenInputFile("gpaByGender.txt");
@@ -151,11 +182,17 @@ int main()
 		//output column headings to the output file
 		OutputRow(outputFile, "Gender", "GPA");
 
+		//output a divider
+		OutputDivider(outputFile);
+
 		//initialize gpa accumulator variables
-		InitializeAccumulatorVariables(femaleGPAS, maleGPAS);
+		InitializeAccumulatorVariables(femaleGPAS, maleGPAS, maleCount, femaleCount, errorCount);
 
 		//process the file accumulating the gender gpas in passed accumulator variables
-		ProcessFile(inputFile, outputFile, femaleGPAS, maleGPAS);
+		ProcessFile(inputFile, outputFile, femaleGPAS, maleGPAS, maleCount, femaleCount, errorCount);
+	
+		//output calculated values to output file
+		OutputCalculations(outputFile, femaleGPAS, maleGPAS, maleCount, femaleCount, errorCount);
 	}
 
 	//close the files 
@@ -196,6 +233,10 @@ ofstream OpenOutputFile(string fileName)
 
 	//open the output file with the passed file name
 	outputFile.open(fileName);
+
+	//set output file precision
+	outputFile.precision(3);
+	outputFile << setprecision(3);
 
 	return outputFile;
 }
@@ -274,24 +315,27 @@ void OutputSuccessfulFileMessage(ofstream& outputFile)
 // that I could use for both the column heading and the data below it since it was the same spacing.
 void OutputRow(ofstream& outputFile, string firstValue, string secondValue)
 {
-	outputFile << setfill(' ') << setw(75/3) << firstValue << setw(75/3) << secondValue << endl;
+	outputFile << setfill(' ') << setw(90/3) << firstValue << setw(90/3) << secondValue.substr(0,4) << endl;
 }
 
 //-------------------------------------------------------------------
 // InitializeAccumulatorVariables - initialize the accumulator variables
 // passed by reference
 //-------------------------------------------------------------------
-void InitializeAccumulatorVariables(double& femaleGPAS, double& maleGPAS)
+void InitializeAccumulatorVariables(double& femaleGPAS, double& maleGPAS, int& maleCount, int& femaleCount, int& errorCount)
 {
 	femaleGPAS = 0;
 	maleGPAS = 0;
+	maleCount = 0;
+	femaleCount = 0;
+	errorCount = 0;
 }
 
 //-------------------------------------------------------------------
 // ProcessFile - process the file, checking if the line is male or fem
 // and accumulating the gpas in corresponding variable
 //-------------------------------------------------------------------
-void ProcessFile(ifstream& inputFile, ofstream& outputFile,  double& femaleGPAS, double& maleGPAS)
+void ProcessFile(ifstream& inputFile, ofstream& outputFile, double& femaleGPAS, double& maleGPAS, int& maleCount, int& femaleCount, int& errorCount)
 {
 	//variable to store the gender read from the file
 	string gender;
@@ -300,6 +344,7 @@ void ProcessFile(ifstream& inputFile, ofstream& outputFile,  double& femaleGPAS,
 	double gpa;
 
 	//NOTE: I much prefer this method that I found while doing some reading, hopefully it is acceptable
+	//it inputs the values into the variables, and once the file is empty it will return false to terminte the loop
 	while (inputFile >> gender >> gpa)
 	{
 		//if gender is female
@@ -308,21 +353,80 @@ void ProcessFile(ifstream& inputFile, ofstream& outputFile,  double& femaleGPAS,
 			//standardize the gender and add gpa to femaleGPAS
 			gender = "Female";
 			femaleGPAS += gpa;
+			femaleCount++;
 		}
 		// if gender is male
 		else if (gender == "M" || gender == "m")
 		{
 			//standardize the gender and add gpa to maleGPAS
-			outputFile << "Male";
+			gender = "Male";
 			maleGPAS += gpa;
+			maleCount++;
 		}
 		// if gender is neither 
 		else
 		{
-			gender =  "Error in Gender *GPA Excluded";
+			gender = "Error in Gender *GPA Excluded";
+			errorCount++;
 		}
 
 		//pass gender and gpa to OutputRow to format the output to file - cast gpa to string to pass in
 		OutputRow(outputFile, gender, to_string(gpa));
 	}
+	
+	//if we have no male gpas, set male gpas to -1
+	if (maleCount == 0)
+	{
+		maleGPAS = -1;
+	}
+
+	if (femaleGPAS == 0)
+	{
+		femaleGPAS = -1;
+	}
 }
+
+//-------------------------------------------------------------------
+// OutputCalculations - output calculated variables into the 
+// output file formatted
+//-------------------------------------------------------------------
+void OutputCalculations(ofstream& outputFile, double& femaleGPAS, double& maleGPAS, int& maleCount, int& femaleCount, int& errorCount)
+{
+	//variables for male and female averages
+	double femaleAverage;
+	double maleAverage;
+
+	//output the statistics
+	OutputDivider(outputFile);
+
+	outputFile << "Total Female GPA" << setw(11) << setprecision(4) << femaleGPAS << endl;
+	outputFile << "Total Male GPA" << setw(13) << setprecision(4) << maleGPAS << endl;
+	outputFile << "Female Count" << setw(15) << femaleCount << endl;
+	outputFile << "Male Count" << setw(17) << maleCount << endl;
+	outputFile << "Error Count" << setw(16) << errorCount << endl;
+
+	//if the female Gpas is -1, we have no female GPAS and send a message the gpa cannot be calculated
+	if (femaleGPAS == -1)
+	{
+		outputFile << "Average Female GPA     The Average GPA could not be calculated" << endl;
+	}
+	//otherwise we calculate the gpa and output it
+	else {
+		femaleAverage = femaleGPAS / femaleCount;
+		outputFile << "Average Female GPA" << setw(9) << femaleAverage << endl;
+	}
+
+	//if the male Gpas is -1, we have no male GPAS and send a message the gpa cannot be calculated
+	if (maleGPAS == -1)
+	{
+		outputFile << "Average Male GPA       The Average GPA could not be calculated" << endl;
+	}
+	//otherwise we calculate the gpa and output it
+	else {
+		maleAverage = maleGPAS / maleCount;
+		outputFile << "Average Male GPA" << setw(11) << maleAverage << endl;
+	}
+	
+	OutputDivider(outputFile);
+}
+
