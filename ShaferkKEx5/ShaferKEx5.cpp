@@ -199,11 +199,15 @@ using namespace std;
 //constants
 const int MAX_SIZE = 20;
 
+void OutputDivider(ofstream& outputFile);
 ifstream OpenInputFile(string fileName);
 ofstream OpenOutputFile(string fileName);
 void FillArray(ifstream& inputFile, int calculatedArray[], int& calculatedArraySize, int maxSize);
 void ReadFileArrayData(ifstream& inputFile, int fileArray[], int& fileArraySize, int maxSize);
-void OutputArray(int arr[], int arraySize);
+void OutputArray(ofstream& outputFile, int arr[], int arraySize, string arrayName);
+double CalculateAverage(int arr[], int arraySize);
+
+const int DIVIDER_WIDTH = 75;
 
 int main()
 {
@@ -215,6 +219,10 @@ int main()
 	//variables to hold array size
 	int calculatedArraySize;
 	int fileArraySize;
+
+	//variables to hold averages for both arrays
+	double calculatedArrayAverage;
+	double fileArrayAverage;
 
 	//variables for input and output files
 	ifstream inputFile;
@@ -231,9 +239,27 @@ int main()
 	ReadFileArrayData(inputFile, fileArray, fileArraySize, MAX_SIZE);
 
 	//output the array results from both arrays
-	OutputArray(calculatedArray, calculatedArraySize);
+	OutputArray(outputFile, calculatedArray, calculatedArraySize, "Calculated Array");
+	OutputArray(outputFile, fileArray, fileArraySize, "File Array");
+
+	//calculate the average for both arrays
+	CalculateAverage(calculatedArray, calculatedArraySize);
+	//CalculateAverage(fileArray, fileArraySize);
+
+	//close the input and output files
+	inputFile.close();
+	outputFile.close();
 
 	return 0;
+}
+
+//-------------------------------------------------------------------
+// Output Divider - output the standard dashed divider line to the 
+// passed by ref output file
+//-------------------------------------------------------------------
+void OutputDivider(ofstream& outputFile)
+{
+	outputFile << setfill('-') << setw(DIVIDER_WIDTH) << ' ' << setfill(' ') << endl;
 }
 
 //-------------------------------------------------------------------
@@ -284,7 +310,7 @@ void FillArray(ifstream& inputFile, int calculatedArray[], int& calculatedArrayS
 	int calculatedValue;
 
 	//initialize the calculated array size variable
-	calculatedArraySize = 0;
+	calculatedArraySize = 1;
 
 	//get the values from the input file
 	inputFile >> startValue >> numberToCalculate;
@@ -327,16 +353,20 @@ void ReadFileArrayData(ifstream& inputFile, int fileArray[], int& fileArraySize,
 	//variable to store file value
 	int fileValue;
 
-	//index variable used to assign value to correct location in array in loop
+	//variable to store array index starting at 0
 	int index;
 
-	//initialize index variable to 0
+	//initialize index to 0
 	index = 0;
+
+	//initialize fileArraySize
+	fileArraySize = 1;
 
 	while (inputFile >> fileValue)
 	{
 		//store value in array and increment array size
 		fileArray[index] = fileValue;
+		index++;
 		fileArraySize++;
 	}
 }
@@ -344,22 +374,58 @@ void ReadFileArrayData(ifstream& inputFile, int fileArray[], int& fileArraySize,
 //-------------------------------------------------------------------
 // OutputArray - output values from passed array in formatted rows
 //-------------------------------------------------------------------
-void OutputArray(int arr[], int arraySize)
-{
+void OutputArray(ofstream& outputFile, int arr[], int arraySize, string arrayName)
+{	
 	//variable for loop control
 	int index;
 
-	cout << "output array?!?" << endl;
+	OutputDivider(outputFile);
 
-	for (index = 0; index < arraySize; index++)
+	//output the array name in between the dividers as header
+	outputFile << arrayName << endl;
+
+	OutputDivider(outputFile);
+
+	for (index = 0; index < arraySize - 1; index++)
 	{
 		//output value from array
-		cout << setw(10) << arr[index];
+		outputFile << setw(10) << arr[index];
 
 		//if this is the fifth value, end the line
 		if ((index + 1) % 5 == 0)
 		{
-			cout << endl;
+			outputFile << endl;
 		}
 	}
+}
+
+//-------------------------------------------------------------------
+//CalculateAverage - calculate average of values in array
+//-------------------------------------------------------------------
+double CalculateAverage(int arr[], int arraySize)
+{
+	//variable to store average
+	double average;
+
+	//variable for totaling the array values
+	int total;
+
+	//loop control variable
+	int index;
+	
+	//initialize total
+	total = 0;
+
+	//loop through array values
+	for (index = 0; index < arraySize - 1; index++)
+	{
+		//add the value at index to total
+		total += arr[index];
+	}
+
+	cout << "TOTAL << " << total << endl;
+
+	average = (double)total / (double)arraySize;
+
+	return average;
 }
