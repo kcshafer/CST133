@@ -1,0 +1,38 @@
+Stealing Styles           64 170
+Burglar Bytes             69 200
+Computer Hacking          70 200
+Coding without a License  65 198
+Excessive Gaming          61 124
+Skipping Class            70 200
+Disorderly Commenting     64 145
+Illegal Blocking          62 132
+Failure to Document       68 156
+Program Forgery           66 146
+Failure to Initialize     63 133
+Assault with Deadly Array 68 177
+Laundering of Variables   64 150
+Grand Larceny of Sorts    70 200
+Indecent Formatting       60 123
+Lewd Looping              61 105
+Failure to Zip            62 162
+Conspiracy to Error       65 166
+Criminal Coding           64 134
+Excessive Grading         60 122
+Projectile Printing       63 135
+Computer Hacking          65 165
+Byte Filtering            63 187
+Console Harassment        68 132
+Argument Assault          61 165
+Murdering Menus           61 199
+Felony Functions          63 133
+Misdemeanor Naming        69 143
+Illegal Passing           57 111
+Parameter Possession      70 210
+Failure to Reference      71 222
+Type Misdemeanor Match    65 143
+Global Grabbing           62 133
+Illegal Calling           64 122
+Repetivive Coding         61 111
+Unlawful Declarations     72 176
+Tampering with Ifs        65 134
+Copying Code              58 120

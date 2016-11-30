@@ -1,0 +1,529 @@
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Stealing Styles           
+With a recorded height of 5 ft. 4 in. & weight of 170
+Height Range: 5 ft. 0 in. to 5 ft. 8 in.
+Weight Range: 160 to 180
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Devilish Dana Dagger          5 ft. 5 in.                 166
+Half-Witted Harold            5 ft. 4 in.                 175
+Jumpy Jason Jackson           5 ft. 5 in.                 171
+
+The number of possible suspects is: 3
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Burglar Bytes             
+With a recorded height of 5 ft. 9 in. & weight of 200
+Height Range: 5 ft. 5 in. to 6 ft. 1 in.
+Weight Range: 190 to 210
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Arnie Assailant               5 ft. 5 in.                 195
+Bully Billy Buster           5 ft. 11 in.                 195
+Crazy Carol Cutthroat         5 ft. 7 in.                 198
+Fishy Frieda Felly            5 ft. 5 in.                 208
+
+The number of possible suspects is: 4
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Computer Hacking          
+With a recorded height of 5 ft. 10 in. & weight of 200
+Height Range: 5 ft. 6 in. to 6 ft. 2 in.
+Weight Range: 190 to 210
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Bully Billy Buster           5 ft. 11 in.                 195
+Crazy Carol Cutthroat         5 ft. 7 in.                 198
+
+The number of possible suspects is: 2
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Coding without a License  
+With a recorded height of 5 ft. 5 in. & weight of 198
+Height Range: 5 ft. 1 in. to 5 ft. 9 in.
+Weight Range: 188 to 208
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Arnie Assailant               5 ft. 5 in.                 195
+Crazy Carol Cutthroat         5 ft. 7 in.                 198
+Fishy Frieda Felly            5 ft. 5 in.                 208
+
+The number of possible suspects is: 3
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Excessive Gaming          
+With a recorded height of 5 ft. 1 in. & weight of 124
+Height Range: 4 ft. 9 in. to 5 ft. 5 in.
+Weight Range: 114 to 134
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Perpetrator Paulette          5 ft. 0 in.                 123
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Skipping Class            
+With a recorded height of 5 ft. 10 in. & weight of 200
+Height Range: 5 ft. 6 in. to 6 ft. 2 in.
+Weight Range: 190 to 210
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Bully Billy Buster           5 ft. 11 in.                 195
+Crazy Carol Cutthroat         5 ft. 7 in.                 198
+
+The number of possible suspects is: 2
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Disorderly Commenting     
+With a recorded height of 5 ft. 4 in. & weight of 145
+Height Range: 5 ft. 0 in. to 5 ft. 8 in.
+Weight Range: 135 to 155
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Cabbler Cody Coder            5 ft. 6 in.                 150
+Loopy Laura Lascious          5 ft. 5 in.                 145
+Smudgy Stan Stealer           5 ft. 7 in.                 155
+Sure Shot Sal                 5 ft. 6 in.                 144
+
+The number of possible suspects is: 4
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Illegal Blocking          
+With a recorded height of 5 ft. 2 in. & weight of 132
+Height Range: 4 ft. 10 in. to 5 ft. 6 in.
+Weight Range: 122 to 142
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Perpetrator Paulette          5 ft. 0 in.                 123
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Failure to Document       
+With a recorded height of 5 ft. 8 in. & weight of 156
+Height Range: 5 ft. 4 in. to 6 ft. 0 in.
+Weight Range: 146 to 166
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Cabbler Cody Coder            5 ft. 6 in.                 150
+Devilish Dana Dagger          5 ft. 5 in.                 166
+Mad Mike Maladroit            6 ft. 0 in.                 165
+Smudgy Stan Stealer           5 ft. 7 in.                 155
+
+The number of possible suspects is: 4
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Program Forgery           
+With a recorded height of 5 ft. 6 in. & weight of 146
+Height Range: 5 ft. 2 in. to 5 ft. 10 in.
+Weight Range: 136 to 156
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Cabbler Cody Coder            5 ft. 6 in.                 150
+Loopy Laura Lascious          5 ft. 5 in.                 145
+Smudgy Stan Stealer           5 ft. 7 in.                 155
+Sure Shot Sal                 5 ft. 6 in.                 144
+
+The number of possible suspects is: 4
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Failure to Initialize     
+With a recorded height of 5 ft. 3 in. & weight of 133
+Height Range: 4 ft. 11 in. to 5 ft. 7 in.
+Weight Range: 123 to 143
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Perpetrator Paulette          5 ft. 0 in.                 123
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Assault with Deadly Array 
+With a recorded height of 5 ft. 8 in. & weight of 177
+Height Range: 5 ft. 4 in. to 6 ft. 0 in.
+Weight Range: 167 to 187
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Half-Witted Harold            5 ft. 4 in.                 175
+Jumpy Jason Jackson           5 ft. 5 in.                 171
+
+The number of possible suspects is: 2
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Laundering of Variables   
+With a recorded height of 5 ft. 4 in. & weight of 150
+Height Range: 5 ft. 0 in. to 5 ft. 8 in.
+Weight Range: 140 to 160
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Cabbler Cody Coder            5 ft. 6 in.                 150
+Loopy Laura Lascious          5 ft. 5 in.                 145
+Smudgy Stan Stealer           5 ft. 7 in.                 155
+Sure Shot Sal                 5 ft. 6 in.                 144
+
+The number of possible suspects is: 4
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Grand Larceny of Sorts    
+With a recorded height of 5 ft. 10 in. & weight of 200
+Height Range: 5 ft. 6 in. to 6 ft. 2 in.
+Weight Range: 190 to 210
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Bully Billy Buster           5 ft. 11 in.                 195
+Crazy Carol Cutthroat         5 ft. 7 in.                 198
+
+The number of possible suspects is: 2
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Indecent Formatting       
+With a recorded height of 5 ft. 0 in. & weight of 123
+Height Range: 4 ft. 8 in. to 5 ft. 4 in.
+Weight Range: 113 to 133
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Perpetrator Paulette          5 ft. 0 in.                 123
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Lewd Looping              
+With a recorded height of 5 ft. 1 in. & weight of 105
+Height Range: 4 ft. 9 in. to 5 ft. 5 in.
+Weight Range: 95 to 115
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+
+The number of possible suspects is: 0
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Failure to Zip            
+With a recorded height of 5 ft. 2 in. & weight of 162
+Height Range: 4 ft. 10 in. to 5 ft. 6 in.
+Weight Range: 152 to 172
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Devilish Dana Dagger          5 ft. 5 in.                 166
+Jumpy Jason Jackson           5 ft. 5 in.                 171
+
+The number of possible suspects is: 2
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Conspiracy to Error       
+With a recorded height of 5 ft. 5 in. & weight of 166
+Height Range: 5 ft. 1 in. to 5 ft. 9 in.
+Weight Range: 156 to 176
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Devilish Dana Dagger          5 ft. 5 in.                 166
+Half-Witted Harold            5 ft. 4 in.                 175
+Jumpy Jason Jackson           5 ft. 5 in.                 171
+
+The number of possible suspects is: 3
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Criminal Coding           
+With a recorded height of 5 ft. 4 in. & weight of 134
+Height Range: 5 ft. 0 in. to 5 ft. 8 in.
+Weight Range: 124 to 144
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Sure Shot Sal                 5 ft. 6 in.                 144
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Excessive Grading         
+With a recorded height of 5 ft. 0 in. & weight of 122
+Height Range: 4 ft. 8 in. to 5 ft. 4 in.
+Weight Range: 112 to 132
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Perpetrator Paulette          5 ft. 0 in.                 123
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Projectile Printing       
+With a recorded height of 5 ft. 3 in. & weight of 135
+Height Range: 4 ft. 11 in. to 5 ft. 7 in.
+Weight Range: 125 to 145
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Loopy Laura Lascious          5 ft. 5 in.                 145
+Sure Shot Sal                 5 ft. 6 in.                 144
+
+The number of possible suspects is: 2
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Computer Hacking          
+With a recorded height of 5 ft. 5 in. & weight of 165
+Height Range: 5 ft. 1 in. to 5 ft. 9 in.
+Weight Range: 155 to 175
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Devilish Dana Dagger          5 ft. 5 in.                 166
+Half-Witted Harold            5 ft. 4 in.                 175
+Jumpy Jason Jackson           5 ft. 5 in.                 171
+Smudgy Stan Stealer           5 ft. 7 in.                 155
+
+The number of possible suspects is: 4
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Byte Filtering            
+With a recorded height of 5 ft. 3 in. & weight of 187
+Height Range: 4 ft. 11 in. to 5 ft. 7 in.
+Weight Range: 177 to 197
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Arnie Assailant               5 ft. 5 in.                 195
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Console Harassment        
+With a recorded height of 5 ft. 8 in. & weight of 132
+Height Range: 5 ft. 4 in. to 6 ft. 0 in.
+Weight Range: 122 to 142
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+
+The number of possible suspects is: 0
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Argument Assault          
+With a recorded height of 5 ft. 1 in. & weight of 165
+Height Range: 4 ft. 9 in. to 5 ft. 5 in.
+Weight Range: 155 to 175
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Devilish Dana Dagger          5 ft. 5 in.                 166
+Half-Witted Harold            5 ft. 4 in.                 175
+Jumpy Jason Jackson           5 ft. 5 in.                 171
+
+The number of possible suspects is: 3
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Murdering Menus           
+With a recorded height of 5 ft. 1 in. & weight of 199
+Height Range: 4 ft. 9 in. to 5 ft. 5 in.
+Weight Range: 189 to 209
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Arnie Assailant               5 ft. 5 in.                 195
+Fishy Frieda Felly            5 ft. 5 in.                 208
+
+The number of possible suspects is: 2
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Felony Functions          
+With a recorded height of 5 ft. 3 in. & weight of 133
+Height Range: 4 ft. 11 in. to 5 ft. 7 in.
+Weight Range: 123 to 143
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Perpetrator Paulette          5 ft. 0 in.                 123
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Misdemeanor Naming        
+With a recorded height of 5 ft. 9 in. & weight of 143
+Height Range: 5 ft. 5 in. to 6 ft. 1 in.
+Weight Range: 133 to 153
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Cabbler Cody Coder            5 ft. 6 in.                 150
+Loopy Laura Lascious          5 ft. 5 in.                 145
+Slick Stealer Stevie         5 ft. 11 in.                 145
+Sure Shot Sal                 5 ft. 6 in.                 144
+
+The number of possible suspects is: 4
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Illegal Passing           
+With a recorded height of 4 ft. 9 in. & weight of 111
+Height Range: 4 ft. 5 in. to 5 ft. 1 in.
+Weight Range: 101 to 121
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+
+The number of possible suspects is: 0
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Parameter Possession      
+With a recorded height of 5 ft. 10 in. & weight of 210
+Height Range: 5 ft. 6 in. to 6 ft. 2 in.
+Weight Range: 200 to 220
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+
+The number of possible suspects is: 0
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Failure to Reference      
+With a recorded height of 5 ft. 11 in. & weight of 222
+Height Range: 5 ft. 7 in. to 6 ft. 3 in.
+Weight Range: 212 to 232
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Lackadaisical Lori Locker     6 ft. 1 in.                 222
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Type Misdemeanor Match    
+With a recorded height of 5 ft. 5 in. & weight of 143
+Height Range: 5 ft. 1 in. to 5 ft. 9 in.
+Weight Range: 133 to 153
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Cabbler Cody Coder            5 ft. 6 in.                 150
+Loopy Laura Lascious          5 ft. 5 in.                 145
+Sure Shot Sal                 5 ft. 6 in.                 144
+
+The number of possible suspects is: 3
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Global Grabbing           
+With a recorded height of 5 ft. 2 in. & weight of 133
+Height Range: 4 ft. 10 in. to 5 ft. 6 in.
+Weight Range: 123 to 143
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Perpetrator Paulette          5 ft. 0 in.                 123
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Illegal Calling           
+With a recorded height of 5 ft. 4 in. & weight of 122
+Height Range: 5 ft. 0 in. to 5 ft. 8 in.
+Weight Range: 112 to 132
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Perpetrator Paulette          5 ft. 0 in.                 123
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Repetivive Coding         
+With a recorded height of 5 ft. 1 in. & weight of 111
+Height Range: 4 ft. 9 in. to 5 ft. 5 in.
+Weight Range: 101 to 121
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+
+The number of possible suspects is: 0
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Unlawful Declarations     
+With a recorded height of 6 ft. 0 in. & weight of 176
+Height Range: 5 ft. 8 in. to 6 ft. 4 in.
+Weight Range: 166 to 186
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Giant Georgie Gunner          6 ft. 3 in.                 180
+Smasher Sally Slasher         6 ft. 1 in.                 183
+Wild Willie Wackily           6 ft. 4 in.                 177
+
+The number of possible suspects is: 3
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Tampering with Ifs        
+With a recorded height of 5 ft. 5 in. & weight of 134
+Height Range: 5 ft. 1 in. to 5 ft. 9 in.
+Weight Range: 124 to 144
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Sure Shot Sal                 5 ft. 6 in.                 144
+
+The number of possible suspects is: 1
+-------------------------------------------------------------------------- 
+Suspect Report
+-------------------------------------------------------------------------- 
+For the crime of: Copying Code              
+With a recorded height of 4 ft. 10 in. & weight of 120
+Height Range: 4 ft. 6 in. to 5 ft. 2 in.
+Weight Range: 110 to 130
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Perpetrator Paulette          5 ft. 0 in.                 123
+
+The number of possible suspects is: 1

@@ -1,0 +1,58 @@
+Silko Report - UNSORTED
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Oldie Ozzie Odoriferous       6 ft. 2 in.                 234
+Jumpy Jason Jackson           5 ft. 5 in.                 171
+Smity Sammy The Slicer        6 ft. 2 in.                 145
+Bully Billy Buster           5 ft. 11 in.                 195
+Crazy Carol Cutthroat         5 ft. 7 in.                 198
+Arnie Assailant               5 ft. 5 in.                 195
+Naughty Nicholas Needles      6 ft. 5 in.                 245
+Slick Stealer Stevie         5 ft. 11 in.                 145
+Cracker Carl Cement           6 ft. 1 in.                 123
+Smasher Sally Slasher         6 ft. 1 in.                 183
+Perpetrator Paulette          5 ft. 0 in.                 123
+Sure Shot Sal                 5 ft. 6 in.                 144
+Giant Georgie Gunner          6 ft. 3 in.                 180
+Devilish Dana Dagger          5 ft. 5 in.                 166
+Wild Willie Wackily           6 ft. 4 in.                 177
+Lackadaisical Lori Locker     6 ft. 1 in.                 222
+Cabbler Cody Coder            5 ft. 6 in.                 150
+Smudgy Stan Stealer           5 ft. 7 in.                 155
+Fishy Frieda Felly            5 ft. 5 in.                 208
+Half-Witted Harold            5 ft. 4 in.                 175
+Mad Mike Maladroit            6 ft. 0 in.                 165
+Loopy Laura Lascious          5 ft. 5 in.                 145
+-------------------------------------------------------------------------- 
+Number of crooks: 23
+The tallest crook is Naughty Nicholas Needles   at a height of 6 ft. 5 in.
+The shortest crook is Perpetrator Paulette       at a height of 5 ft. 0 in.
+Count of suspects over 6 feet: 9
+-------------------------------------------------------------------------- 
+Silko Report - SORTED
+
+Crook's Name                   Height                   Weight
+-------------------------------------------------------------------------- 
+Arnie Assailant               5 ft. 5 in.                 195
+Bully Billy Buster           5 ft. 11 in.                 195
+Cabbler Cody Coder            5 ft. 6 in.                 150
+Cracker Carl Cement           6 ft. 1 in.                 123
+Crazy Carol Cutthroat         5 ft. 7 in.                 198
+Devilish Dana Dagger          5 ft. 5 in.                 166
+Fishy Frieda Felly            5 ft. 5 in.                 208
+Giant Georgie Gunner          6 ft. 3 in.                 180
+Half-Witted Harold            5 ft. 4 in.                 175
+Jumpy Jason Jackson           5 ft. 5 in.                 171
+Lackadaisical Lori Locker     6 ft. 1 in.                 222
+Loopy Laura Lascious          5 ft. 5 in.                 145
+Mad Mike Maladroit            6 ft. 0 in.                 165
+Naughty Nicholas Needles      6 ft. 5 in.                 245
+Oldie Ozzie Odoriferous       6 ft. 2 in.                 234
+Perpetrator Paulette          5 ft. 0 in.                 123
+Slick Stealer Stevie         5 ft. 11 in.                 145
+Smasher Sally Slasher         6 ft. 1 in.                 183
+Smity Sammy The Slicer        6 ft. 2 in.                 145
+Smudgy Stan Stealer           5 ft. 7 in.                 155
+Sure Shot Sal                 5 ft. 6 in.                 144
+Wild Willie Wackily           6 ft. 4 in.                 177
