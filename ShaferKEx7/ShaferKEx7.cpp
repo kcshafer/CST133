@@ -183,7 +183,7 @@ struct InventoryType {
 	double markupPercent;
 	double markupAmount;
 	double retailPrice;
-	double potentialProfile;
+	double potentialProfit;
 	double inventoryValue;
 	int quantity;
 };
@@ -192,8 +192,7 @@ void OutputDivider(ofstream& outputFile);
 ifstream OpenInputFile(string fileName);
 ofstream OpenOutputFile(string fileName);
 void ProcessInventoryFile(ifstream& inventoryFile, InventoryType inventoryList[]);
-
-
+InventoryType InitInventoryType(string id, double wholesaleCost, double markupPercent, int quantity);
 
 int main()
 {
@@ -265,27 +264,66 @@ ofstream OpenOutputFile(string fileName)
 //-------------------------------------------------------------------
 void  ProcessInventoryFile(ifstream& inventoryFile, InventoryType inventoryList[])
 {
-	//initialize inventory item
-	InventoryType item;
+	//temporary variables to store values read from inventory file
+	string id;
+	char wholesaleCostTemp[9];
+	char markupPercentageTemp[9];
+	char quantityTemp[9];
 
-	string tempStr;
+	//discard variable
+	char discard;
+
+	//prime inventory file with peek
 	inventoryFile.peek();
 
-	while (!inventoryFile.eof())
-	{
+	//variable to set array locations
+	int index;
 
-		getline(inventoryFile, tempStr, ',');
+	//initialize index to 0
+	index = 0;
+
+	while (!inventoryFile.eof() && index == MAX_SIZE)
+	{
+		//get id from file and ignore the comma
+		getline(inventoryFile, id, ',');
 		inventoryFile.ignore(1, ',');
-		char str2[8];
-		char str3[8];
-		char str4[8];
 		
-		inventoryFile.get(str2,8);
-		inventoryFile.get(str3, 8);
-		inventoryFile.get(str4, 8);
-		cout << "ID <<< " << tempStr << endl;
-		cout << "Wholesale <<< " << str2 << endl;
-		cout << "MARKUP <<< " << str3 << endl;
-		cout << "AMT <<< " << str4 << endl;
+		//get wholesale cost, markup percent and quantity
+		inventoryFile.get(wholesaleCostTemp,9);
+		inventoryFile.get(markupPercentageTemp, 9 );
+		inventoryFile.get(quantityTemp, 9);
+
+		//discard trailing whitespace
+		inventoryFile.get(discard);
+
+		//initialize inventory type and add to array
+		inventoryList[index] = InitInventoryType(id, atof(wholesaleCostTemp), atof(markupPercentageTemp), atof(quantityTemp));
+	
+		//increment index
+		index++;
 	}
+}
+
+//-------------------------------------------------------------------
+// InitInventoryType - initialize and return InventoryType struct
+// including calculating values 
+//-------------------------------------------------------------------
+InventoryType InitInventoryType(string id, double wholesaleCost, double markupPercent, int quantity)
+{
+	//initialize inventory type struct
+	InventoryType inventory = InventoryType();
+	
+	//set values based on parameters
+	inventory.id = id;
+	inventory.wholesaleCost = wholesaleCost;
+	inventory.markupPercent = markupPercent;
+	inventory.quantity = quantity;
+
+	//calculate the markup amount
+	inventory.markupAmount = inventory.wholesaleCost * inventory.markupPercent;
+
+	//calculate the retail price
+	inventory.retailPrice = inventory.wholesaleCost + inventory.markupAmount;
+	
+	return inventory;
 }
