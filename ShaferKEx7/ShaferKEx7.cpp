@@ -173,7 +173,7 @@
 
 using namespace std;
 
-const int DIVIDER_WIDTH = 75;
+const int DIVIDER_WIDTH = 120;
 const int MAX_SIZE = 25;
 
 //Inventory type struct
@@ -191,26 +191,97 @@ struct InventoryType {
 void OutputDivider(ofstream& outputFile);
 ifstream OpenInputFile(string fileName);
 ofstream OpenOutputFile(string fileName);
-void ProcessInventoryFile(ifstream& inventoryFile, InventoryType inventoryList[]);
+void ProcessInventoryFile(ifstream& inventoryFile, InventoryType inventoryList[], int& inventoryCount);
+void ProcessUpdateFile(ifstream& updateFile, InventoryType inventoryList[], int inventoryCount);
 InventoryType InitInventoryType(string id, double wholesaleCost, double markupPercent, int quantity);
+void OutputInventoryReport(ofstream& inventoryReport, string title, InventoryType inventoryList[], int inventoryCount);
+double CalculateTotals(InventoryType inventoryList[], int inventoryCount, bool profitFlag);
+void FindItemsByCharInId(InventoryType inventoryList[], int inventoryCount, char searchChar, InventoryType results[], int& resultsCount);
+int FindItemById(InventoryType inventoryList[], int inventoryCount, string id);
+void FindItemsByQuantity(InventoryType inventoryList[], int inventoryCount, int quantityLimit, InventoryType results[], int& resultsCount);
+void OutputSearchReport(ofstream& inventoryReport,InventoryType results[], int resultsCount, string title);
+double RoundUp(double amount);
 
 int main()
 {
+
 	//variable to store inventory and update input files
 	ifstream inventoryFile;
 	ifstream updateFile;
 
+	//variables to store output files
+	ofstream inventoryReport;
+
 	//inventory type array
 	InventoryType inventoryList[MAX_SIZE];
+
+	//array to store results of inventory x and b search
+	InventoryType xResults[MAX_SIZE];
+	InventoryType bResults[MAX_SIZE];
+
+	//arrays to store results from greater than 10 and 1000 quantity search
+	InventoryType quantityTenResults[MAX_SIZE];
+	InventoryType quantityOneThousandResults[MAX_SIZE];
+
+	//variable to store the length of the inventory list
+	int inventoryCount;
+
+	//variable to store the lengths of results arrays
+	int xResultsCount;
+	int bResultsCount;
+	int quantityTenResultsCount;
+	int quantityThousandResultsCount;
 
 	//open inventory file
 	inventoryFile = OpenInputFile("Inventory.txt");
 
 	//open update file
 	updateFile = OpenInputFile("Update.txt");
+	
+	//open inventory report file
+	inventoryReport = OpenOutputFile("InventoryReport.txt");
+
+	//set inventory report numeric precision
+	inventoryReport << fixed << setprecision(2);
 
 	//process inventory file into inventory list
-	ProcessInventoryFile(inventoryFile, inventoryList);
+	ProcessInventoryFile(inventoryFile, inventoryList, inventoryCount);
+
+	//output the initial inventory to the report
+	OutputInventoryReport(inventoryReport, "The Initial Inventory", inventoryList, inventoryCount);
+
+	//find the inventory items with x in the id
+	FindItemsByCharInId(inventoryList, inventoryCount, 'X', xResults, xResultsCount);
+
+	//find the inventory items with b in the id
+	FindItemsByCharInId(inventoryList, inventoryCount, 'B', bResults, bResultsCount);
+	
+	//find items with quantity greater than 10
+	FindItemsByQuantity(inventoryList, inventoryCount, 10, quantityTenResults, quantityTenResultsCount);
+
+	//find items with quantity greater than 1000
+	FindItemsByQuantity(inventoryList, inventoryCount, 1000, quantityOneThousandResults, quantityThousandResultsCount);
+
+	//output search for 'x' in id to inventory report
+	OutputSearchReport(inventoryReport, xResults, xResultsCount, "X Item's List");
+
+	//output search for 'b' in id to inventory report
+	OutputSearchReport(inventoryReport, bResults, bResultsCount, "B Item's List");
+
+	//output quantity search results to inventory report
+	OutputSearchReport(inventoryReport, quantityTenResults, quantityTenResultsCount, "Low Stock Items - Less than or equal to 10");
+	OutputSearchReport(inventoryReport, quantityOneThousandResults, quantityThousandResultsCount, "Low Stock Items - Less than or equal to 1000");
+	
+	//process update file to update inventory quantity
+	ProcessUpdateFile(updateFile, inventoryList, inventoryCount);
+
+	//output updated inventory report
+	OutputInventoryReport(inventoryReport, "The Updated Inventory", inventoryList, inventoryCount);
+
+	//close all the files
+	inventoryFile.close();
+	updateFile.close();
+	inventoryReport.close();
 
 	return 0;
 }
@@ -262,8 +333,9 @@ ofstream OpenOutputFile(string fileName)
 // ProcessInventoryFile - take in the inventory file and generate 
 // InventoryType instances with data from file & calculated data
 //-------------------------------------------------------------------
-void  ProcessInventoryFile(ifstream& inventoryFile, InventoryType inventoryList[])
+void ProcessInventoryFile(ifstream& inventoryFile, InventoryType inventoryList[], int& inventoryCount)
 {
+
 	//temporary variables to store values read from inventory file
 	string id;
 	char wholesaleCostTemp[9];
@@ -276,13 +348,10 @@ void  ProcessInventoryFile(ifstream& inventoryFile, InventoryType inventoryList[
 	//prime inventory file with peek
 	inventoryFile.peek();
 
-	//variable to set array locations
-	int index;
+	//initialize inventory count to 0
+	inventoryCount = 0;
 
-	//initialize index to 0
-	index = 0;
-
-	while (!inventoryFile.eof() && index == MAX_SIZE)
+	while (!inventoryFile.eof() && inventoryCount != MAX_SIZE)
 	{
 		//get id from file and ignore the comma
 		getline(inventoryFile, id, ',');
@@ -297,10 +366,69 @@ void  ProcessInventoryFile(ifstream& inventoryFile, InventoryType inventoryList[
 		inventoryFile.get(discard);
 
 		//initialize inventory type and add to array
-		inventoryList[index] = InitInventoryType(id, atof(wholesaleCostTemp), atof(markupPercentageTemp), atof(quantityTemp));
+		inventoryList[inventoryCount] = InitInventoryType(id, atof(wholesaleCostTemp), atof(markupPercentageTemp), atof(quantityTemp));
 	
 		//increment index
-		index++;
+		inventoryCount++;
+	}
+}
+
+//-------------------------------------------------------------------
+//ProcessUpdateFile - read in updates from file, find the inv. type
+// by id and update the quantity
+//-------------------------------------------------------------------
+void ProcessUpdateFile(ifstream& updateFile, InventoryType inventoryList[], int inventoryCount)
+{
+
+	//temporary variables to store values read from inventory file
+	string id;
+	char quantityTemp[9];
+
+	//variable to store int quantity
+	int quantity;
+
+	//index of found inventory item by id
+	int matchIndex;
+
+	//discard variable
+	char discard;
+	
+	//variable to store found inventory type 
+	InventoryType inventoryType;
+
+	//prime inventory file with peek
+	updateFile.peek();
+
+	while (!updateFile.eof())
+	{
+		//get id from file and ignore the comma
+		getline(updateFile, id, ',');
+		updateFile.ignore(1, ',');
+
+		//get the quantity and discard trailing characters
+		updateFile.get(quantityTemp, 9);
+		updateFile.get(discard);
+
+		//find the inventory type by id
+		matchIndex = FindItemById(inventoryList, inventoryCount, id);
+	
+		//get inventory instance by match index
+		inventoryType = inventoryList[matchIndex];
+
+		//convert quantity temp to quantity int
+		quantity = atof(quantityTemp);
+		
+		//update the quantity and put back in list
+		inventoryType.quantity += quantity;
+
+		//update the potential profit
+		inventoryType.potentialProfit = inventoryType.markupAmount * inventoryType.quantity;
+
+		//update inventory value
+		inventoryType.inventoryValue = inventoryType.wholesaleCost * inventoryType.quantity;
+
+		inventoryList[matchIndex] = inventoryType;
+
 	}
 }
 
@@ -320,10 +448,270 @@ InventoryType InitInventoryType(string id, double wholesaleCost, double markupPe
 	inventory.quantity = quantity;
 
 	//calculate the markup amount
-	inventory.markupAmount = inventory.wholesaleCost * inventory.markupPercent;
+	inventory.markupAmount = RoundUp(inventory.wholesaleCost * inventory.markupPercent);
 
 	//calculate the retail price
 	inventory.retailPrice = inventory.wholesaleCost + inventory.markupAmount;
 	
+	//calculate the potential profit
+	inventory.potentialProfit = inventory.markupAmount * inventory.quantity;
+
+	//calculate inventory value
+	inventory.inventoryValue = inventory.wholesaleCost * inventory.quantity;
+
 	return inventory;
+}
+
+//-------------------------------------------------------------------
+//OutputInventoryReport - output formatted inventory data to 
+// InventoryReport.txt
+//-------------------------------------------------------------------
+void OutputInventoryReport(ofstream& inventoryReport, string title, InventoryType inventoryList[], int inventoryCount)
+{
+	//loop control variable
+	int index = 0;
+
+	//variables for total value and profit
+	double totalValue;
+	double totalProfit;
+
+	OutputDivider(inventoryReport);
+	
+	//output the centered title
+	inventoryReport << setfill(' ') << setw((120 + title.length()) / 2)<< title << endl;
+
+	OutputDivider(inventoryReport);
+
+	//output the headers 
+	//TODO: pass this into a method that can handle the formating maybe?
+	inventoryReport << "ID";
+	inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 7) << " Markup %";
+	inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << "Cost";
+	inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 7) << "Markup Amount";
+	inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << "Price";
+	inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << "Profit";
+	inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << "Value";
+	inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << "Quantity" << endl;
+
+	OutputDivider(inventoryReport);
+	
+	//loop through each inventory item
+	for (index = 0; index < inventoryCount; index++)
+	{
+		//get inventory item instance by index
+		InventoryType item = inventoryList[index];
+
+		//output each item formatted to inventory report
+		inventoryReport << item.id;
+		inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << item.markupPercent;
+		inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << item.wholesaleCost;
+		inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << item.markupAmount;
+		inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << item.retailPrice;
+		inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << item.potentialProfit;
+		inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << item.inventoryValue;
+		inventoryReport << setfill(' ') << setw(DIVIDER_WIDTH / 8) << item.quantity << endl;
+	}
+
+	OutputDivider(inventoryReport);
+
+	totalValue = CalculateTotals(inventoryList, inventoryCount, false);
+	totalProfit = CalculateTotals(inventoryList, inventoryCount, true);
+
+	//output the totals
+	inventoryReport << "Total Profit" << setfill('.') << setw(60) << totalProfit << endl;
+	inventoryReport << "Total Value" << setfill('.') << setw(61) << totalValue << endl;
+}
+
+//-------------------------------------------------------------------
+//CalculateTotals - aggregate totals of inventory type properties
+//based on passed boolean
+//-------------------------------------------------------------------
+double CalculateTotals(InventoryType inventoryList[], int inventorySize, bool profitFlag)
+{
+	//variable to hold the total calculated
+	double total;
+
+	//initialize total to 0
+	total = 0;
+
+	//loop control variable
+	int index;
+
+	//variable to temporarily store inventory type
+	InventoryType inventoryType;
+
+	for (index = 0; index < inventorySize; index++)
+	{
+		//get inventory type by index
+		inventoryType = inventoryList[index];
+
+		//if the profit flag is set to true we are totaling profit, otherwise total inventoryValue
+		if (profitFlag)
+		{
+			total += inventoryType.potentialProfit;
+		}
+		else {
+			total += inventoryType.inventoryValue;
+		}
+	}
+
+	return total;
+}
+
+//-------------------------------------------------------------------
+// FindItemsByCharInId - find inventory items by passed character
+// in id and return them in new referenced array
+//-------------------------------------------------------------------
+void FindItemsByCharInId(InventoryType inventoryList[], int inventoryCount, char searchChar, InventoryType results[], int& resultsCount)
+{
+	//loop control variable
+	int index;
+
+	//initialize result count to 0
+	resultsCount = 0;
+
+	//variable to retrieve inventory item
+	InventoryType inventoryType;
+
+	//loop through inventory items
+	for (index = 0; index < inventoryCount; index++)
+	{
+		//retrieve inventory item
+		inventoryType = inventoryList[index];
+
+		//check if id contains character
+		if (inventoryType.id.find(searchChar) != string::npos)
+		{
+			results[resultsCount] = inventoryType;
+			resultsCount++;
+		}
+	}
+
+}
+
+//-------------------------------------------------------------------
+//FindItemsByQuantity - find items with less than quantity and return 
+// them as results reference parameter
+//-------------------------------------------------------------------
+void FindItemsByQuantity(InventoryType inventoryList[], int inventoryCount, int quantityLimit, InventoryType results[], int& resultsCount)
+{
+	//loop control variable
+	int index;
+
+	//initialize results count to 0
+	resultsCount = 0;
+
+	//temporary inventory type variable
+	InventoryType inventoryType;
+
+	for (index = 0; index < inventoryCount; index++)
+	{
+		//get inventory type by index
+		inventoryType = inventoryList[index];
+	
+		//check if inventory type quantity is greater than quantity limit
+		if (inventoryType.quantity <= quantityLimit)
+		{
+			results[resultsCount] = inventoryType;
+			resultsCount++;
+		}
+	}
+}
+
+//-------------------------------------------------------------------
+//FindItemById - find item in inventory array by id, and return index
+// of match
+//-------------------------------------------------------------------
+int FindItemById(InventoryType inventoryList[], int inventoryCount, string id)
+{
+	//loop control variable
+	int index;
+
+	//temporary inventory type
+	InventoryType inventoryType;
+
+	//boolean variable to  mark true if id found
+	bool isFound;
+
+	//set isFound to false
+	isFound = false;
+	
+	//loop through inventory types
+	for (index = 0; index < inventoryCount && !isFound; index++)
+	{
+		//get inventory type by index
+		inventoryType = inventoryList[index];
+
+		//check if the id matches the current inventory type
+		if (inventoryType.id == id)
+		{
+			//set is found to true to exit the loop
+			isFound = true;
+		}
+	}
+
+	//return the index of the matching inventory type
+	return index - 1;
+}
+
+//-------------------------------------------------------------------
+//OutputSearchReports - output the results of a search to inventory
+// report file
+//-------------------------------------------------------------------
+void OutputSearchReport(ofstream& inventoryReport, InventoryType results[], int resultsCount, string title)
+{
+	//loop control variable 
+	int index;
+
+	//variable to store temporary inventory type
+	InventoryType inventoryType;
+
+	OutputDivider(inventoryReport);
+
+	//output title of search report
+	inventoryReport << setfill(' ') << setw(30) <<  title << endl;
+
+	//output headers
+	inventoryReport << "ID";
+	inventoryReport << setfill(' ') << setw(20) << "Quantity" << endl;
+
+	OutputDivider(inventoryReport);
+
+	for (index = 0; index < resultsCount; index++)
+	{
+		//retrieve inventory type by index
+		inventoryType = results[index];
+
+		//output id and quantity
+		inventoryReport << inventoryType.id;
+		inventoryReport << setfill(' ') << setw(15) << inventoryType.quantity << endl;
+	}
+}
+
+//-------------------------------------------------------------------
+//RoundUp - function provided to accurately round the amount up
+//-------------------------------------------------------------------
+double RoundUp(double amount)
+{
+	int intAmount;
+	int tempInt;
+	int testDigit;
+
+	//Calculate the int value of the amount
+	intAmount = (int)(amount * 1000);
+
+	//Calculate the int value of 3 places
+	tempInt = (int)(amount * 100);
+
+	//Calculate the digit to test
+	testDigit = intAmount - tempInt * 10;
+
+	//if this value is 5 or greater, round up the number
+	if (testDigit >= 5)
+	{
+		amount = amount + 0.005;
+	}
+
+	//return the amount
+	return amount;
 }

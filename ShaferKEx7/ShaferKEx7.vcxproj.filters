@@ -26,5 +26,8 @@
     <Text Include="Update.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="InventoryReport.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

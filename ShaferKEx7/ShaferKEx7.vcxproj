@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Inventory.txt" />
+    <Text Include="InventoryReport.txt" />
     <Text Include="Update.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
